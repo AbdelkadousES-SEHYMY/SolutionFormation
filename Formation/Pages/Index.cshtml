@@ -1,0 +1,85 @@
+﻿@page
+
+@model IndexModel
+@{
+    ViewData["Title"] = "w";
+}
+
+<div class="container">
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">PhoneNumber</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var restaurant in Model.restaurants)
+            {
+                <tr>
+                    <th scope="row">@restaurant.Id</th>
+                    <td>@restaurant.Name</td>
+                    <td>@restaurant.Address</td>
+                    <td>@restaurant.PhoneNumber</td>
+                    <td>
+                        <a type="button" asp-page="./Details" asp-route-id="@restaurant.Id" class="btn btn-sm btn-secondary">Details</a>
+                        <a type="button" asp-page="./Edit" asp-route-id="@restaurant.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a type="button" asp-page="./Delete" asp-route-id="@restaurant.Id" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+
+                </tr>
+            }
+           
+          
+        </tbody>
+    </table>
+
+
+
+  @*  <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            @Html.LabelFor(m=>m.Restaurant.Name)
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m=>m.Restaurant.Name)
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m=>m.Restaurant.Address)
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m=>m.Restaurant.Address)
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            @Html.LabelFor(m=>m.Restaurant.PhoneNumber)
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m=>m.Restaurant.PhoneNumber)
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+ </div>

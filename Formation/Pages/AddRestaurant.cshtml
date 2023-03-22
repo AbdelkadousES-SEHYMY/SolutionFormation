@@ -1,0 +1,39 @@
+﻿@page
+@model Formation.Pages.AddRestaurantModel
+@{
+}
+<div class="container">
+    @Html.ValidationSummary(false,"",new{@class="text-danger"})
+    <form method="post">
+       
+
+        <div class="mb-3">
+            @Html.LabelFor(m=>m.Restaurant.Name)
+            <div class="col-md-10">
+                @Html.TextBoxFor(m=>m.Restaurant.Name)
+            </div>
+            <span asp-validation-for="@Model.Restaurant.Name"></span>
+
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m=>m.Restaurant.Address)
+            <div class="col-md-10">
+                @Html.TextBoxFor(m=>m.Restaurant.Address)
+            </div>
+            <span asp-validation-for="@Model.Restaurant.Address"></span>
+
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m=>m.Restaurant.PhoneNumber)
+            <div class="col-md-10">
+                @Html.TextBoxFor(m=>m.Restaurant.PhoneNumber)
+            </div>
+            <span asp-validation-for="@Model.Restaurant.PhoneNumber"></span>
+
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
